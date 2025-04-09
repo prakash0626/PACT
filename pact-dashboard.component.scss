@@ -1,0 +1,489 @@
+@mixin app-pact-dashboard-theme($theme) {
+  $primary: map-get($theme, primary);
+  $warn: map-get($theme, warn);
+  $accent: map-get($theme, accent);
+
+  $font-size: 0.9em;
+
+  app-pact-dashboard {
+    width: 100%;
+    padding: 5px;
+    overflow-x: hidden;
+  }
+
+  .content-spinner {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dashboard-content {
+    margin-top: 25px !important;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    background-color: mat-color($primary, 50);
+
+    .section {
+      margin-bottom: 10px !important;
+
+      .mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
+        right: -60px;
+      }
+
+      .mat-badge-medium .mat-badge-content {
+        width: 100px;
+        height: 16px;
+        background-color: transparent;
+        color: red;
+        line-height: 20px;
+      }
+    }
+
+    .main-card-full {
+      display: flex;
+      width: 100%;
+      padding-bottom: 0px;
+
+      .mat-card-header {
+        background-color: #eee;
+        padding-top: 8px;
+        height: 25px;
+        margin: -16px;
+        border-radius: 3px 3px 0px 0px;
+        margin-bottom: 15px;
+
+        .mat-card-title {
+          font-size: 1em;
+          font-weight: bold;
+        }
+      }
+
+      .inner-card-full {
+        display: flex;
+        flex: auto;
+        padding: 0px !important;
+        margin-bottom: 0px !important;
+
+        .mat-card-content {
+          padding-left: 0;
+        }
+
+        .vcs-btn-rows {
+          flex-direction: row !important;
+        }
+
+        button {
+          min-width: 220px;
+          height: 45px !important;
+          margin: 2px;
+          margin-left: 0px;
+          margin-right: 25px !important;
+          text-align: left;
+
+          .mat-icon {
+            width: 30px;
+            height: 25px;
+            padding: 0px;
+            padding-bottom: 0;
+            font-size: 2.6em;
+          }
+
+          .multiline-icon {
+            padding-top: 10px;
+          }
+
+          .mat-button-ripple-round {
+            border-radius: 0 !important;
+          }
+
+          .btn-text {
+            padding: 6px;
+            color: black;
+            font-size: 0.9em;
+          }
+
+          .line-break {
+            padding: 0px 8px;
+            display: table;
+            margin-left: 36px;
+            margin-top: -24px;
+          }
+        }
+
+        button:hover {
+          background-color: mat-color($primary, 50);
+          border-radius: 0 !important;
+          height: 45px !important;
+
+          .mat-icon {
+            color: mat-color($warn);
+          }
+        }
+      }
+
+      .inner-card-full.last {
+        padding-bottom: 10px !important;
+      }
+
+      .bottom-padding {
+        padding-bottom: 10px !important;
+      }
+
+      .dynamic-dashboard-items {
+        display: flex;
+        flex-flow: row wrap;
+
+        .item {
+          width: 260px;
+          margin: 10px;
+
+          button {
+            width: 100%;
+            text-align: left;
+
+            .mat-icon {
+              width: 30px;
+              height: 25px;
+              padding: 0px;
+              padding-bottom: 0;
+              font-size: 2.6em;
+            }
+
+            .mat-button-ripple-round {
+              border-radius: 0 !important;
+            }
+
+            .btn-text {
+              padding: 6px;
+              color: black;
+              font-size: 0.9em;
+            }
+            .line-break {
+              padding: 0px 8px;
+              display: table;
+              margin-left: 28px;
+              margin-top: -24px;
+            }
+          }
+
+          button:hover {
+            background-color: mat-color($primary, 50);
+            border-radius: 0 !important;
+
+            .mat-icon {
+              color: mat-color($warn);
+            }
+          }
+        }
+      }
+    }
+
+    .main-card {
+      display: flex;
+      flex: auto;
+
+      .mat-card-header {
+        background-color: #eee;
+        padding-top: 8px;
+        height: 25px;
+        margin: -16px;
+        border-radius: 3px 3px 0px 0px;
+        margin-bottom: 15px;
+
+        .mat-card-title {
+          font-size: 1em;
+          font-weight: bold;
+        }
+      }
+    }
+
+    $transition_time: 0.2s;
+
+    .transition {
+      transition: all $transition_time ease-in-out;
+    }
+
+    .carousel {
+      // display: grid;
+      .direction.left {
+        left: -15px !important;
+      }
+
+      .click-area {
+        width: 30px !important;
+        text-align: center;
+      }
+
+      ul.indicators {
+        bottom: -0.7rem !important;
+      }
+
+      .content {
+        display: flex;
+
+        .item {
+          width: 100%;
+          opacity: 0;
+
+          // using delay to prevent left change show error
+          &.fade_animation {
+            transition: opacity 0.295s linear $transition_time;
+          }
+
+          &.visible {
+            opacity: 1;
+          }
+
+          .stat-img {
+            width: 85%;
+            display: table;
+            background-size: cover;
+            background-position: center;
+            min-height: 130px;
+            margin: 0 auto;
+
+            .stat-table {
+              table {
+                width: 100%;
+                font-size: 0.9em;
+                margin-bottom: 15px;
+              }
+
+              table,
+              th,
+              td {
+                border: 1px solid mat-color($primary);
+                border-collapse: collapse;
+
+                th,
+                td {
+                  padding: 5px 10px;
+                }
+
+                th {
+                  background-color: mat-color($primary, 400);
+                  color: white;
+
+                  .mat-form-field-flex>.mat-form-field-infix {
+                    padding: 0px !important;
+                    height: 20px;
+                  }
+                  .mat-form-field-label-wrapper {
+                    top: -1.5em!important;
+                  }
+                  .mat-form-field-wrapper {
+                    padding-bottom: 0em;
+                  }
+                  // .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+                  //   transform: translateY(-1.1em) scale(.75);
+                  //   width: 133.33333%;
+                  // }
+                }
+              }
+            }
+          }
+
+          .ann-img {
+            width: 100%;
+            display: table;
+            background-size: cover;
+            background-position: center;
+            min-height: 130px;
+
+            .anntable {
+              display: table-cell;
+              vertical-align: middle;
+
+              table {
+                margin-bottom: 10px;
+
+                .announcementImg {
+                  width: 10%;
+                  padding-left: 25px;
+                  border-right: 1px solid mat-color($primary);
+                  color: mat-color($primary);
+                }
+
+                .date {
+                  position: relative;
+                  width: 70px;
+                  font-family: Georgia, serif;
+                  color: mat-color($primary);
+                  margin: 0 auto;
+                  margin-top: -35%;
+
+                  .day,
+                  .month,
+                  .year {
+                    position: absolute;
+                  }
+
+                  .day {
+                    font-size: 36px;
+                    top: 15px;
+                  }
+
+                  .month {
+                    top: 0;
+                    left: 0;
+                    font-size: 20px;
+                  }
+
+                  .year {
+                    top: 19px;
+                    right: -5px;
+                    font-size: 20px;
+                    rotation: -90deg !important;
+                    /* ** Hacks ** */
+                    -webkit-transform: rotate(-90deg);
+                    -moz-transform: rotate(-90deg);
+                    -ms-transform: rotate(-90deg);
+                  }
+                }
+
+                .announcementContent {
+                  width: auto;
+                  padding-left: 10px;
+                  padding-right: 30px;
+                  font-size: 0.9em;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .ball {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: mat-color($primary);
+        border: 2px solid mat-color($primary);
+        opacity: 0.5;
+
+        &.visible {
+          opacity: 1;
+        }
+      }
+
+      .progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: mat-color($primary);
+      }
+
+      .click-area {
+        width: 50px;
+        text-align: center;
+
+        i {
+          font-size: 3em;
+          color: mat-color($primary);
+        }
+      }
+    }
+
+    @media (max-width: 960px) {
+      .main-card {
+        display: flex;
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 961px) {
+      .main-card {
+        display: flex;
+        width: 49.5%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .mat-card-header.dbl-height-header {
+        height: 50px;
+      }
+
+      .main-card-full {
+        .inner-card-full {
+          padding: 0px !important;
+
+          .mat-card-content {
+            width: 100%;
+          }
+
+          button {
+            width: 100%;
+            margin: 2px !important;
+
+            .mat-icon {
+              width: 30px;
+              // height: 30px;
+              font-size: 2.4em;
+            }
+
+            .btn-text {
+              font-size: 0.9em;
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: 601px) and (max-width: 790px) {
+      .main-card-full {
+        .inner-card-full {
+          button {
+            min-width: 160px;
+
+            // line-height: 40px;
+            .mat-icon {
+              width: 30px;
+              // height: 30px;
+              font-size: 2.6em;
+            }
+
+            .btn-text {
+              font-size: 0.9em;
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: 960px) and (max-width: 1060px) {
+      .main-card-full {
+        .inner-card-full {
+          button {
+            min-width: 180px;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 1460px) {
+      .main-card-full {
+        .inner-card-full {
+          .vcs-btn-rows {
+            flex-direction: column !important;
+          }
+        }
+      }
+    }
+  }
+  // end of .dashboard-content
+
+  /** By default mat-toolbar height decrease to 56px for screen < 599px, so need to adjust sub banner in the sidenav-content section */
+  @media (max-width: 599px) {
+    .subtoolbar {
+      top: 56px;
+    }
+
+    .dashboard-content {
+      margin-top: 50px !important;
+    }
+  }
+}
