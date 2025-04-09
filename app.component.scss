@@ -1,0 +1,240 @@
+/** ag-grid alternate row color */
+$odd-row-background-color: #fbf8e7;
+
+@mixin app-root-theme($theme) {
+  $primary: map-get($theme, primary);
+  $warn: map-get($theme, warn);
+  $accent: map-get($theme, accent);
+
+  .parent-spinner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /** Overlay Spinner **/
+  .overlay-spinner {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 150, 0, 0.1);
+    opacity: 1;
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    vertical-align: middle;
+  }
+  /** Mat-form-field */
+  .regular-mat-form-field {
+    .mat-form-field-flex > .mat-form-field-infix {
+      padding: 0.4em 0px !important;
+      min-height: 18px;
+      border-top: 0.7em solid transparent !important;
+    }
+
+    .mat-form-field-label-wrapper {
+      top: -1.5em;
+    }
+
+    .mat-form-field-wrapper {
+      // padding-bottom: 0.9em;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+      .mat-form-field-label {
+      transform: translateY(-1.1em) scale(0.75);
+      width: 133.33333%;
+    }
+
+    textarea.mat-input-element {
+      padding: 2px 0;
+      margin: -2px 0;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .mat-option-text.mat-option-text {
+    // margin: 1rem 1rem;
+    overflow: visible;
+    line-height: initial;
+    word-wrap: break-word;
+    white-space: normal;
+    // text-indent: -0.5em;
+    // padding-left: 0.5em;
+  }
+
+  .mat-select-panel .mat-optgroup-label,
+  .mat-select-panel .mat-option {
+    font-size: inherit;
+    /* line-height: 3.5em; */
+    height: 3.5em !important;
+  }
+
+  .readonly-date-picker {
+    /* Make the input field look disabled but still clickable */
+    .mat-form-field-flex {
+      cursor: not-allowed; /* Make it clear the field is not editable */
+    }
+    .mat-form-field-outline {
+      background: #f5f5f5;
+    }
+    .readonly-input {
+      cursor: not-allowed; /* Make it clear the field is not editable */
+      background-color: #f5f5f5; /* Optional: Light background to indicate the field is disabled */
+    }
+    /* Ensure the datepicker toggle is clickable */
+    .mat-datepicker-toggle {
+      pointer-events: all;
+    }
+  }
+
+  /** Mat-tab */
+  .mat-tab-label {
+    background: #bdbdbd;
+    border-radius: 10px 10px 0px 0px;
+    margin-right: 10px;
+    height: 30px !important;
+    padding: 0;
+    font-size: 1.1em;
+  }
+
+  .mat-tab-label-active {
+    opacity: 1 !important;
+    background-color: mat-color($primary);
+    color: white;
+  }
+
+  .mat-tab-label-content {
+    padding: 5px 27px 5px 10px;
+    width: 100%;
+
+    .mat-icon {
+      position: absolute !important;
+      right: 2px !important;
+    }
+
+    // padding: 5px 10px;
+    // width: 100%;
+    // .mat-icon{
+    //   margin-left: 5px !important;
+    // }
+  }
+
+  /** form label colors */
+  .required-label-color {
+    // color: #f44336;
+    color: red;
+  }
+
+  .optional-label-color {
+    color: black;
+  }
+
+  .green-color {
+    color: #3cab26;
+  }
+
+  .pending-color {
+    color: #ff9900;
+  }
+
+  /* Housing Homeless form tooltip */
+  .homeless-tooltip {
+    max-width: 220px !important;
+    text-align: left;
+    // background: green;
+  }
+
+  .mat-checkbox-layout {
+    white-space: normal !important;
+  }
+
+  .mat-tooltip {
+    font-size: 14px !important;
+  }
+
+  /* Tenant-Roster unit offline tooltip */
+  .tr-info-icon {
+    cursor: pointer;
+  }
+  .tr-mat-info-icon {
+    font-size: 1.4em;
+    padding-left: 5px;
+    padding-top: 5px;
+    color: mat-color($primary);
+  }
+
+  .vcs-info-tooltip {
+    white-space: pre-line;
+    background: mat-color($primary);
+  }
+
+  /* End Tenant-Roster unit offline tooltip */
+
+  /* Client Placements History row color for new Pending record */
+  .verify-row-bg {
+    background-color: sandybrown !important;
+  }
+  .grid-gray-row {
+    background-color: GAINSBORO !important;
+    color: DimGray !important;
+    // background-color: '#E5E8E8' !important;
+    // color: 'rgba(0, 0, 0, 0.38)' !important;
+  }
+
+  /* consent tooltip */
+  .consent-tooltip {
+    font-size: 13px !important;
+  }
+
+  /* pact tooltip */
+  .pact-tooltip {
+    font-size: 13px !important;
+    white-space: pre-line;
+  }
+
+  /** below code is the globle level style for ag-grid */
+  .ag-header-cell-filtered {
+    // background-color: #1b6d85;
+    background-color: mat-color($primary);
+    color: white;
+  }
+
+  .ag-root-wrapper {
+    overflow: visible;
+  }
+
+  /* ############## Master Leasing ####################### */
+  .ml-info-tooltip {
+    white-space: pre-line;
+    background: mat-color($primary);
+  }
+  .ml-tr-info-icon {
+    cursor: pointer;
+  }
+  .ml-tr-mat-info-icon {
+    font-size: 1.4em;
+    padding-left: 5px;
+    padding-top: 5px;
+    color: mat-color($primary);
+  }
+
+  .mltr-blue-label {
+    color: mat-color($primary);
+  }
+
+  .mat-form-field-subscript-wrapper {
+    position: unset !important;
+    font-size: 75% !important;
+    margin-top: 5px !important;
+    top: calc(100% - 1.5em);
+  }
+}
