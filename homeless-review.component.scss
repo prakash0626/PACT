@@ -1,0 +1,210 @@
+@mixin app-homeless-review-theme($theme) {
+	$primary: map-get($theme, primary);
+	$warn: map-get($theme, warn);
+	$accent: map-get($theme, accent);
+	app-homeless-review {
+		width: 100%;
+		padding: 5px;
+		overflow-x: hidden;
+	}
+	.homeless-review {
+		margin-top: 25px !important;
+		display: flex;
+		flex-direction: column;
+		background-color: mat-color($primary, 50);
+		input {
+			text-transform: uppercase;
+        }
+        .homeless-review-main-card {
+			display: flex;
+			flex-direction: column;
+			margin-top: 7px;
+			padding: 0px;
+			background-color: mat-color($primary, 50);
+			.mat-card-content {
+				.mat-tab-label {
+					background: #BDBDBD;
+					border-radius: 10px 10px 0px 0px;
+					margin-right: 10px;
+					height: 30px !important;
+					padding: 10px;
+          			font-size: 1.1em;
+          			margin-top: 10px;
+				}
+				.mat-tab-label-active {
+					opacity: 1 !important;
+					background-color: mat-color($primary);
+					color: white;
+				}
+				.mat-tab-label-content {
+					padding: 0!important;
+					width: 100%;
+				}
+				.homeless-review-small-box {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background: white;
+					.table-filters-header {
+						width: 100%;
+						background-color: white;
+						border: 1px solid #eaf0fb;
+						.table-top-icons {
+							mat-icon {
+								padding: 5px;
+							}
+							mat-icon:hover {
+								cursor: pointer;
+								color: mat-color($warn);
+							}
+						}
+					}
+					.homeless-review-container {
+						width: 100%;
+						margin-right: 10px;
+						margin-left: 10px;
+						form {
+							padding-left: 10px;
+							padding-right: 10px;
+							padding-bottom: 10px;
+						}
+					}
+				}
+			}
+			.mat-form-field-flex>.mat-form-field-infix {
+				padding: 0.4em 0px!important;
+				height: 15px;
+			}
+			.mat-form-field-label-wrapper {
+				top: -1.5em!important;
+			}
+			.mat-form-field-wrapper {
+				padding-bottom: 0px!important;
+			}
+			.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+				transform: translateY(-1.1em) scale(.75);
+				width: 133.33333%;
+			}
+			mat-form-field {
+				vertical-align: middle;
+			}
+			mat-card {
+				padding: 5px;
+				border-radius: 0;
+			}	
+		}
+		.section {
+			margin-top: 10px!important;
+		}
+		.homeless-expansion-label {
+			font-size: 14px;
+			padding-right: 10px;
+			padding-left: 5px;
+			font-weight: normal;
+			align-self: center;
+		}
+		.expand-collapse-icon {
+			align-self: center; 
+		}
+		div .radio-button-space {
+            width: 60px !important;
+            display: inline-block;
+        }
+		.col1header  {    
+			border: 1px solid lightgrey;
+			padding: 10px;
+			height: 35px;    
+			text-align: left; 
+			color: white;
+			background: #5c6bc0; 
+			align-items: center;
+		}
+		.col2header  {    
+			border-top: 1px solid lightgrey;
+			border-bottom: 1px solid lightgrey;
+			border-right: 1px solid lightgrey;
+			padding: 10px;
+			height: 35px;    
+			text-align: left; 
+			color: white;
+			background: #5c6bc0; 
+			align-items: center;
+		}
+		.col1  {    
+			display: flex;     
+			overflow-wrap: auto; 
+			flex-grow: auto;
+			margin: 0!important;
+			padding: 10px;
+			border-left: 1px solid lightgrey; 
+			border-bottom: 1px solid lightgrey; 
+			border-right: 1px solid lightgrey; 
+			align-items: left;
+		}
+		.col2  { 
+			display: flex;   
+			flex-flow: row wrap;
+			flex-grow: auto;    
+			margin: 0!important;
+			padding: 10px;
+			padding-top: unset!important;
+			border-right: 1px solid lightgrey;
+			border-bottom: 1px solid lightgrey;
+			background-color: #fefac0;
+		}
+		.explain-box  { 
+			padding: 10px;
+			border-left: 1px solid lightgrey;
+			border-right: 1px solid lightgrey;
+			border-bottom: 1px solid lightgrey;
+			align-items: center;
+		}
+		.explain-textbox {
+			width: 93%;
+    		border-radius: 5px;
+    		font-size: 14px;
+			font-family: inherit;
+			padding: 5px;
+			outline-color: #3f51b5;
+		}
+		.homeless-bottom-main {
+			display: flex;
+			flex-flow: column wrap;
+			margin-top: 16px!important;
+			margin-bottom: 5px!important;
+		  	.homeless-bottom-sub 
+			{
+				display: flex;
+				align-items: center;
+				.homeless-bottom-sub-button-parent-left {
+					order: 1;
+					flex: 1 1 auto;
+					justify-content: flex-start;
+				}
+				.homeless-bottom-sub-button-parent-right {
+					order: 2;
+					flex: 1 1 auto;
+					justify-content: flex-end;
+					text-align: right;
+				}
+         	}     
+		}
+		.housing-main {
+				box-shadow: none!important;
+				padding: 0!important
+		}
+		.housing-chart {
+			padding: 0!important;
+		}
+		.housing-episode {
+			padding: 0!important;
+			.content-sub {
+				margin: 0!important;;
+			}
+		}
+		.homeless-count-text {
+			margin-left: 10px;
+			color: blue;
+		}
+	}
+}

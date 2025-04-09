@@ -1,0 +1,112 @@
+<div class="homeless-review">
+  <app-content-banner [isDashboard]="false" pageName="Homeless Review"></app-content-banner>
+  <mat-card class="homeless-review-main-card mat-elevation-z0">
+    <mat-card-header fxLayout="column" fxLayoutGap="10px">
+      <det-client-banner [isHousingProgramType]="true"></det-client-banner>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-tab-group dynamicHeight [(selectedIndex)]="tabSelectedIndex" (selectedTabChange)="homelessReviewTabChange()">
+        <!--Housing/Homeless Tab-->
+        <mat-tab>
+          <ng-template matTabLabel>
+            <span>Housing/Homeless</span>
+          </ng-template>
+          <ng-template matTabContent>
+            <mat-card class="mat-elevation-z0">
+              <div class="homeless-review-small-box mat-elevation-z4" fxLayout="column">
+                <div class="homeless-review-container mat-elevation-z4">
+                  <form class="section">
+                    <mat-accordion>
+                      <mat-expansion-panel [expanded]="housingDocumentsExpanded"
+                        (opened)="housingDocumentsExpanded = true" (closed)="housingDocumentsExpanded = false">
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            <mat-icon class="expand-collapse-icon">
+                              {{ housingDocumentsExpanded  ? 'indeterminate_check_box' : 'add_box' }}</mat-icon>
+                            <span class="homeless-expansion-label">
+                              Housing Documents
+                            </span>
+                          </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <app-det-housing-determination-documents
+                          [housingDeterminationDocumentsData]="housingDeterminationDocumentsData">
+                        </app-det-housing-determination-documents>
+                      </mat-expansion-panel>
+                    </mat-accordion>
+                    <app-homeless-history [pactApplicationID]="pactApplicationId" [parentPageID]="3"
+                      (isCthChanged)="isCthChanged()">
+                    </app-homeless-history>
+                  </form>
+                </div>
+              </div>
+            </mat-card>
+            <div class="homeless-bottom-main">
+              <div class="homeless-bottom-sub">
+                <div class="homeless-bottom-sub-button-parent-right">
+                  <button type="button" mat-raised-button color="primary" (click)="previousHousingHomelessTab()"
+                    matTooltip="Previous" matTooltipClass="pact-tooltip">Previous</button>
+                  &nbsp;&nbsp;
+                  <button type="button" mat-raised-button color="primary" (click)="nextHousingHomelessTab()"
+                    matTooltip="Next" matTooltipClass="pact-tooltip">Next</button>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </mat-tab>
+        <!--Homeless 1-4 Years Tab-->
+        <mat-tab [disabled]="!isHomeless1To4YearsTabEnabled">
+          <ng-template matTabLabel>
+            <span>Homeless 1-4 Years</span>
+          </ng-template>
+          <ng-template matTabContent>
+            <app-homeless-one-four-years (nextHomeless1To4YearsTab)="nextHomeless1To4YearsTab()"
+              (previousHomeless1To4YearsTab)="previousHomeless1To4YearsTab()">
+            </app-homeless-one-four-years>
+          </ng-template>
+        </mat-tab>
+        <!--Residential Treatment & Institutional History Tab-->
+        <mat-tab *ngIf="clientCategory !== 675" [disabled]="!isResidentialTreatmentTabEnabled">
+          <ng-template matTabLabel>
+            <span>Residential Treatment & Institutional History</span>
+          </ng-template>
+          <ng-template matTabContent>
+            <app-residential-treatment-history
+              (nextResidentialTreatmentHistoryTab)="nextResidentialTreatmentHistoryTab()"
+              (previousResidentialTreatmentHistoryTab)="previousResidentialTreatmentHistoryTab()">
+            </app-residential-treatment-history>
+          </ng-template>
+        </mat-tab>
+        <!--Homeless At Risk Tab-->
+        <mat-tab *ngIf="clientCategory === 673 || clientCategory === 674" [disabled]="!isHomelessAtRiskTabEnabled">
+          <ng-template matTabLabel>
+            <span>At Risk</span>
+          </ng-template>
+          <ng-template matTabContent>
+            <app-homeless-at-risk (nextHomelessAtRiskTab)="nextHomelessAtRiskTab()"
+              (previousHomelessAtRiskTab)="previousHomelessAtRiskTab()"></app-homeless-at-risk>
+          </ng-template>
+        </mat-tab>
+        <!--Homeless Summary Tab-->
+        <mat-tab [disabled]="!isHomelessSummaryTabEnabled">
+          <ng-template matTabLabel>
+            <span>Homeless Summary</span>
+          </ng-template>
+          <ng-template matTabContent>
+            <app-homeless-summary (nextHomelessSummaryTab)="nextHomelessSummaryTab($event)"
+              (previousHomelessSummaryTab)="previousHomelessSummaryTab()"></app-homeless-summary>
+          </ng-template>
+        </mat-tab>
+        <!--Housing Homeless Report Tab-->
+        <mat-tab [disabled]="!isHomelessReportTabEnabled">
+          <ng-template matTabLabel>
+            <span>Housing Homeless Report</span>
+          </ng-template>
+          <ng-template matTabContent>
+            <app-housing-homeless-report (nextHomelessReportTab)="nextHomelessReportTab()"
+              (previousHomelessReportTab)="previousHomelessReportTab()"></app-housing-homeless-report>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>
