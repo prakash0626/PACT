@@ -1,0 +1,32 @@
+/** for angular material Design */
+@import "~material-design-icons/iconfont/material-icons.css";
+@import "./app/core/styles/material-theme";
+
+/** for custom-notification dialog */
+@import "./../node_modules/ngx-toastr/toastr.css";
+
+/** for custom-date-component in ag-grid */
+@import "../node_modules/flatpickr/dist/flatpickr.min.css";
+@import "../node_modules/flatpickr/dist/themes/material_blue.css";
+
+/** for ag-grid */
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+// @import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-balham//sass/legacy/ag-theme-balham-v22-compat.scss";
+
+/** For Calendar Schedular*/
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
+html,
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/** below table css is to reduce the height of the juniper tool visible in the page*/
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
